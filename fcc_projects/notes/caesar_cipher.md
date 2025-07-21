@@ -62,3 +62,70 @@ print(result)
 ```
 
 (But I haven’t learned that in freeCodeCamp yet!) 07/21/2025
+
+### 📁 Caesar Cipher Debugging Tips (Beginner Python)
+
+**Goal:** Encrypt a message using a Caesar cipher.
+
+---
+
+### 🔐 Key Things to Remember
+
+1. **Define variables before using them**
+
+   * Make sure `text` and `shift` are defined **before** the loop or function that uses them.
+
+2. **Indentation matters!**
+
+   * Python uses indentation to group code. Anything that belongs inside the function (or loop) must be indented properly.
+
+3. **Use `.lower()` when matching characters**
+
+   * This ensures your text matches the lowercase alphabet you're using for encryption.
+
+4. **Make sure `print()` statements are inside the function (if you want them to run when the function is called)**
+
+   * If you define `print()` outside the function, they won't have access to variables like `encrypted_text` that are created inside the function.
+
+5. **Call the function!**
+
+   * Just defining `def caesar():` doesn't run the code inside. You must call it later with `caesar()`.
+
+---
+
+### ❌ Common Mistake I Made
+
+> I placed the `print()` statements **outside** of the function, so the program didn't know what `encrypted_text` was when trying to print it.
+
+**Fix:** Move the `print()` lines **inside** the function block.
+
+---
+
+### ✅ Correct Structure (No Extra Concepts):
+
+```python
+text = 'Hello Zaira'
+shift = 3
+
+def caesar():
+  alphabet = 'abcdefghijklmnopqrstuvwxyz'
+  encrypted_text = ''
+
+  for char in text.lower():
+    if char == ' ':
+      encrypted_text += char
+    else:
+      index = alphabet.find(char)
+      new_index = (index + shift) % len(alphabet)
+      encrypted_text += alphabet[new_index]
+
+  print('plain text:', text)
+  print('encrypted text:', encrypted_text)
+
+caesar()
+```
+
+---
+
+
+
