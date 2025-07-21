@@ -1,5 +1,5 @@
 ```markdown
-# Python Basics Notes
+# Python Basics Functions
 
 ## Variables
 - Use `=` to assign values
