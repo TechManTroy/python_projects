@@ -84,3 +84,19 @@ This `.md` file expands on Caesar cipher notes by introducing:
 
 Good for: **cipher comparison, debugging patterns, and Python string logic practice.**
 
+📌 📘 Expansion – What I Learned Today: 07/23/2025
+
+    ✅ I learned how to use the return statement in a Python function.
+    Instead of printing the result directly from inside the function, I now return it to use later.
+
+    ✅ I learned how to call a function using two arguments: the message and the key.
+    Example: vigenere(text, custom_key)
+
+    ✅ I learned how to store the result of a function in a variable.
+    I stored the encrypted result in a variable called encryption, like this:
+
+encryption = vigenere(text, custom_key)
+print(encryption)  # Output the returned value
+
+    ✅ This helps keep my code more flexible, clean, and reusable.
+
