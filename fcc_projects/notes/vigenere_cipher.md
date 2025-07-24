@@ -2,14 +2,18 @@
 
 Unlike Caesar cipher, Vigenère uses a **key word** to vary the shift for each letter.
 
-#### Setup:
+---
+
+### ✍️ Setup:
 
 ```python
 text = 'Hello Zaira'
 custom_key = 'python'  # instead of using a fixed shift
 ```
 
-#### 🔧 Function Definition:
+---
+
+### 🔧 Function Definition:
 
 ```python
 def vigenere(message, key):
@@ -34,10 +38,21 @@ def vigenere(message, key):
     print('encrypted text:', encrypted_text)
 ```
 
-#### 🚨 Common Mistake:
+---
 
-* Misspelling a variable name (`key_inder` instead of `key_index`)
-* Using a variable (`offset`) before defining it (needs to be derived from `key_char`)
+### 🚀 Calling the Function:
+
+```python
+encryption = vigenere(text, custom_key)
+```
+
+---
+
+### 🚨 Common Mistakes:
+
+* ❌ Misspelling a variable name (`key_inder` instead of `key_index`)
+* ❌ Using a variable before defining it (`offset` from `key_char`)
+* ❌ Using a wrong function name when calling it (e.g., `vingenere` instead of `vigenere`)
 
 ---
 
@@ -45,7 +60,27 @@ def vigenere(message, key):
 
 * Always match variable names **inside and outside** the function.
 * Define all variables before using them.
-* Double check for typos, especially in loop counters or key logic.
+* Double-check for typos, especially in loop counters or key logic.
 * Vigenère cipher uses the **letter value from the key** as the shift.
+* The key loops repeatedly through the text.
 
+---
+
+### 🧠 Example Output:
+
+```text
+plain text: Hello Zaira
+encrypted text: wjcpa niyvp
+```
+
+---
+
+### 📁 Notes File Usage
+
+This `.md` file expands on Caesar cipher notes by introducing:
+- Key-based letter shifting
+- Repeating keys
+- Common debugging techniques for classical ciphers
+
+Good for: **cipher comparison, debugging patterns, and Python string logic practice.**
 
