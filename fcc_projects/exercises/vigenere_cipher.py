@@ -1,40 +1,38 @@
-# Define the message and the custom keyword to use for encryption
-text = 'Hello Zaira'
-custom_key = 'python'
+vigenere key
 
-# Vigenère cipher function
-def vigenere(message, key):
-    key_index = 0  # Keeps track of the position in the key
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'  # Reference alphabet
-    encrypted_text = ''  # Stores the encrypted result
+text = 'mrttaqrhknsw ih puggrur'
+custom_key = 'happycoding'
 
-    # Loop through each character in the message (converted to lowercase)
+def vigenere(message, key, direction=1):
+    key_index = 0
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    final_message = ''
+
     for char in message.lower():
-        
-        # Keep spaces unchanged in the encrypted message
-        if char == ' ':
-            encrypted_text += char
-        else:
-            # Get the corresponding character from the key (wraps around with %)
+
+        # Append any non-letter character to the message
+        if not char.isalpha():
+            final_message += char
+        else:        
+            # Find the right key character to encode/decode
             key_char = key[key_index % len(key)]
-            key_index += 1  # Move to the next key character
+            key_index += 1
 
-            # Calculate how much to shift based on key character's position in alphabet
+            # Define the offset and the encrypted/decrypted letter
             offset = alphabet.index(key_char)
-
-            # Find index of current character in alphabet
             index = alphabet.find(char)
+            new_index = (index + offset*direction) % len(alphabet)
+            final_message += alphabet[new_index]
+    
+    return final_message
 
-            # Apply the shift (Vigenère logic) and wrap around if needed
-            new_index = (index + offset) % len(alphabet)
+def encrypt(message, key):
+    return vigenere(message, key)
+    
+def decrypt(message, key):
+    return vigenere(message, key, -1)
 
-            # Append the encrypted character to the result
-            encrypted_text += alphabet[new_index]
-
-    return encrypted_text
-
-# Encrypt the message using the Vigenère cipher
-encryption = vigenere(text, custom_key)
-
-# Print the encrypted result
-print(encryption)
+print(f'\nEncrypted text: {text}')
+print(f'Key: {custom_key}')
+decryption = decrypt(text, custom_key)
+print(f'\nDecrypted text: {decryption}\n')
