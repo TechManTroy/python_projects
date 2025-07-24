@@ -1,20 +1,29 @@
-🔐 Vigenère Cipher - Python Implementation and Documentation
-📌 Overview
+# 🔐 Vigenère Cipher - Python Implementation and Documentation
 
-The Vigenère Cipher is a polyalphabetic substitution cipher that improves on the Caesar cipher by using a keyword to vary the shift for each letter in the message.
-🧪 Input Example
+---
+
+## 📌 Overview
+
+The **Vigenère Cipher** is a polyalphabetic substitution cipher that improves on the Caesar cipher by using a **keyword** to vary the shift for each letter in the message.
+
+---
+
+## 🧪 Input Example
 
 ```python
 text = 'mrttaqrhknsw ih puggrur'
 custom_key = 'happycoding'
 ```
-```
-text: The encrypted message
 
-custom_key: The keyword used to shift each letter
-```
-🧠 Function Breakdown
-🔧 Core Cipher Function
+* `text`: The encrypted message
+* `custom_key`: The keyword used to shift each letter
+
+---
+
+## 🧠 Function Breakdown
+
+### 🔧 Core Cipher Function
+
 ```python
 def vigenere(message, key, direction=1):
     key_index = 0
@@ -35,13 +44,19 @@ def vigenere(message, key, direction=1):
     
     return final_message
 ```
+
+### 🔄 Purpose of Parameters
+
 | Parameter   | Description                            |
 | ----------- | -------------------------------------- |
 | `message`   | The message to encrypt or decrypt      |
 | `key`       | The keyword used for letter shifting   |
 | `direction` | Set to `1` to encrypt, `-1` to decrypt |
 
-🔐 Wrapper Functions
+---
+
+### 🔐 Wrapper Functions
+
 ```python
 def encrypt(message, key):
     return vigenere(message, key)
@@ -49,9 +64,13 @@ def encrypt(message, key):
 def decrypt(message, key):
     return vigenere(message, key, -1)
 ```
-These helper functions allow for simpler usage of vigenere().
 
-🖨️ Usage Example
+* These helper functions allow for simpler usage of `vigenere()`.
+
+---
+
+## 🖨️ Usage Example
+
 ```python
 print(f'\nEncrypted text: {text}')
 print(f'Key: {custom_key}')
@@ -59,13 +78,20 @@ decryption = decrypt(text, custom_key)
 print(f'\nDecrypted text: {decryption}\n')
 ```
 
-📤 Sample Output
-```python
+---
+
+## 📤 Sample Output
+
+```
 Encrypted text: mrttaqrhknsw ih puggrur
 Key: happycoding
 
 Decrypted text: hello zaira you rockstar
 ```
+
+---
+
+## ⚠️ Weaknesses of the Vigenère Cipher
 
 | ❌ Weakness                              | 📄 Description                                                                                        |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -75,6 +101,12 @@ Decrypted text: hello zaira you rockstar
 | **Only handles alphabetic characters**  | You’d need to modify the cipher to support digits, punctuation, or unicode.                           |
 | **Outdated by modern standards**        | Offers no real security today—modern encryption like AES is recommended.                              |
 
-✅ Final Thoughts
+---
 
-The Vigenère Cipher is an excellent tool for learning encryption principles and working with strings and loops in Python. But it should never be used for securing real-world data.
+## ✅ Final Thoughts
+
+The Vigenère Cipher is an excellent tool for learning encryption principles and working with strings and loops in Python. But it should **never be used for securing real-world data**.
+
+
+
+
