@@ -48,4 +48,4 @@ def vigenere(message, key):
 * Double check for typos, especially in loop counters or key logic.
 * Vigenère cipher uses the **letter value from the key** as the shift.
 
-Let me know when you’re ready to add decryption logic!
+
