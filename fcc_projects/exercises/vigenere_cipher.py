@@ -1,47 +1,40 @@
-# Original text to encrypt
+# Define the message and the custom keyword to use for encryption
 text = 'Hello Zaira'
-
-# Instead of using a fixed number shift like Caesar, we use a word as the key
 custom_key = 'python'
 
-# Function name changed from 'caesar' to 'vigenere'
+# Vigenère cipher function
 def vigenere(message, key):
-    '''
-    The key is usually shorter than the message.
-    We use key_index to keep track of where we are in the key,
-    and use it in a loop so the key repeats as needed.
-    '''
-    key_index = 0  # Start at the first letter of the key
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    encrypted_text = ''  # To store the final result
+    key_index = 0  # Keeps track of the position in the key
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'  # Reference alphabet
+    encrypted_text = ''  # Stores the encrypted result
 
-    # Go through each character in the message
+    # Loop through each character in the message (converted to lowercase)
     for char in message.lower():
-        # If it's a space, just add it to the encrypted text
+        
+        # Keep spaces unchanged in the encrypted message
         if char == ' ':
             encrypted_text += char
         else:
-            # Get the letter from the key (repeat using % if needed)
+            # Get the corresponding character from the key (wraps around with %)
             key_char = key[key_index % len(key)]
+            key_index += 1  # Move to the next key character
 
-            # Move to the next letter in the key
-            key_index += 1
+            # Calculate how much to shift based on key character's position in alphabet
+            offset = alphabet.index(key_char)
 
-            # Get shift amount based on the key character's position in the alphabet
-            offset = alphabet.find(key_char)
-
-            # Get position of the current message character in the alphabet
+            # Find index of current character in alphabet
             index = alphabet.find(char)
 
-            # Add the shift and wrap around if needed
+            # Apply the shift (Vigenère logic) and wrap around if needed
             new_index = (index + offset) % len(alphabet)
 
-            # Add the encoded character to the encrypted result
+            # Append the encrypted character to the result
             encrypted_text += alphabet[new_index]
 
-    # Print original and encrypted text
-    print('plain text:', message)
-    print('encrypted text:', encrypted_text)
+    return encrypted_text
 
-# Call the function using your text and custom key
-vigenere(text, custom_key)
+# Encrypt the message using the Vigenère cipher
+encryption = vigenere(text, custom_key)
+
+# Print the encrypted result
+print(encryption)
