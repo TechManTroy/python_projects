@@ -1,5 +1,3 @@
-### ✅ Save As: `python_loops.md`
-
 # 🔁 Python Loops Reference
 
 This document explains **loop types**, **control statements**, and **common tools** used in Python loops.
