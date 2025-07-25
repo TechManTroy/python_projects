@@ -139,7 +139,7 @@ setattr(obj, 'attr', value)  # Sets attribute on object
 
 ## ✅ Summary
 
-These are **essential Python functions** that will help you:
+These are **essential Python functions** that will help:
 
 * Work with data
 * Debug and explore your code
